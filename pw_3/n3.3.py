@@ -1,7 +1,6 @@
 number = input()
 even = []
 odd = []
-
 for i in number:
     if int(i) % 2 == 0:
         even.append(i)

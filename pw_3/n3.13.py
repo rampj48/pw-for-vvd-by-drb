@@ -1,5 +1,4 @@
 year = int(input())
-
 if year % 4 == 0:
     print('Год високосный, 29 дней в феврале')
 else:
