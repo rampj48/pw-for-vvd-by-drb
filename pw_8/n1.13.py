@@ -8,4 +8,7 @@ for i in A:
     print(' '.join(list(map(str, i))))
 
 for i in range(1, N + 1, 2):
-    print(min(A[i]))
+    try:
+        print(min(A[i]))
+    except IndexError:
+        pass

@@ -2,7 +2,7 @@ import random
 
 M = int(input())
 N = int(input())
-A = [[random.randrange(100) for i in range(M)] for j in range(N)]
+A = [[random.randrange(10) for i in range(M)] for j in range(N)]
 
 for i in A:
     print(' '.join(list(map(str, i))))
