@@ -11,7 +11,7 @@ ind_min2 = matrix[ind_min1].index(min1)
 
 matrix[ind_min1][ind_min2], matrix[ind_max1][ind_max2] = max1, min1
 
-file = open("БДР_УБ-42_vivod.txt", "w")
+file = open("БДР_УБ-42_vivod.txt", "a")
 file.write("Результат задания №2:\n")
 file.write("Изменённая матрица\n")
 

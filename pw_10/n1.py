@@ -15,4 +15,5 @@ for i in range(1, columns + 1, 2):
     except IndexError:
         pass
 
+file.write("\n" * 2)
 file.close()
