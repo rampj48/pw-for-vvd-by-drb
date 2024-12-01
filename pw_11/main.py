@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter.ttk import Combobox
+from tkinter import filedialog
 
 root = Tk()
 root.title("Богданов Д.Р.")
@@ -58,8 +59,77 @@ equals.grid(column=3, row=1)
 result = Label(tab_calculator)
 result.grid(column=4, row=1)
 
+
 # Чекбоксы
+def clicked():
+    res = []
+    count = 0
+    if status1.get() == 1:
+        count += 1
+        res.append("Первый")
+    if status2.get() == 1:
+        count += 1
+        res.append("Второй")
+    if status3.get() == 1:
+        count += 1
+        res.append("Третий")
+
+    str_res = ""
+    for word in res:
+        if len(res) > 1:
+            str_res += word + ", "
+        else:
+            str_res += word + "  "
+
+    choose.set(f"Вы выбрали: {str_res[:-2]}")
+
+
 label_checkbox = Label(tab_checkbox, text="Чекбоксы")
 label_checkbox.grid(column=0, row=0)
+
+choose = StringVar()
+label_choose = Label(textvariable=choose)
+label_choose.pack()
+
+status1 = BooleanVar()
+check1 = Checkbutton(tab_checkbox, text="Первый", variable=status1, command=clicked)
+check1.grid(column=0, row=1)
+
+status2 = BooleanVar()
+check2 = Checkbutton(tab_checkbox, text="Второй", variable=status2, command=clicked)
+check2.grid(column=0, row=2)
+
+status3 = BooleanVar()
+check3 = Checkbutton(tab_checkbox, text="Третий", variable=status3, command=clicked)
+check3.grid(column=0, row=3)
+
+# Текстовый редактор
+label_text = Label(tab_text, text="Текстовый редактор")
+label_text.grid(column=0, row=0)
+text_editor = Text()
+text_editor.pack(fill=BOTH, expand=True)
+
+
+def upload_file():
+    file_path = filedialog.askopenfilename()
+    if file_path != "":
+        with open(file_path, "r") as file:
+            text = file.read()
+            text_editor.delete("1.0", END)
+            text_editor.insert("1.0", text)
+
+
+def save_file():
+    file_path = filedialog.asksaveasfilename()
+    if file_path != "":
+        text = text_editor.get("1.0", END)
+        with open(file_path, "w") as file:
+            file.write(text)
+
+
+open_button = Button(tab_text, text="Открыть файл", command=upload_file)
+open_button.grid(column=0, row=1)
+save_button = Button(tab_text, text="Сохранить файл", command=save_file)
+save_button.grid(column=1, row=1)
 
 root.mainloop()
