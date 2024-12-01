@@ -88,8 +88,8 @@ label_checkbox = Label(tab_checkbox, text="Чекбоксы")
 label_checkbox.grid(column=0, row=0)
 
 choose = StringVar()
-label_choose = Label(textvariable=choose)
-label_choose.pack()
+label_choose = Label(tab_checkbox,textvariable=choose)
+label_choose.grid(column=1, row=0)
 
 status1 = BooleanVar()
 check1 = Checkbutton(tab_checkbox, text="Первый", variable=status1, command=clicked)
@@ -104,9 +104,7 @@ check3 = Checkbutton(tab_checkbox, text="Третий", variable=status3, comman
 check3.grid(column=0, row=3)
 
 # Текстовый редактор
-label_text = Label(tab_text, text="Текстовый редактор")
-label_text.grid(column=0, row=0)
-text_editor = Text()
+text_editor = Text(tab_text)
 text_editor.pack(fill=BOTH, expand=True)
 
 
@@ -127,10 +125,10 @@ def save_file():
             file.write(text)
 
 
-open_button = Button(tab_text, text="Открыть файл", command=upload_file)
-open_button.grid(column=0, row=1)
+open_button = Button(text_editor, text="Открыть файл", command=upload_file)
+open_button.pack(side=LEFT,fill=X,expand=True,anchor=SW)
 
 save_button = Button(tab_text, text="Сохранить файл", command=save_file)
-save_button.grid(column=1, row=1)
+save_button.pack(side=RIGHT,fill=X,expand=True,anchor=SE)
 
 root.mainloop()
