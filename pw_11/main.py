@@ -5,7 +5,7 @@ from tkinter import filedialog
 
 root = Tk()
 root.title("Богданов Д.Р.")
-root.geometry("400x250")
+root.geometry("400x300")
 
 tab_control = ttk.Notebook(root)
 tab_calculator = ttk.Frame(tab_control)
