@@ -129,6 +129,7 @@ def save_file():
 
 open_button = Button(tab_text, text="Открыть файл", command=upload_file)
 open_button.grid(column=0, row=1)
+
 save_button = Button(tab_text, text="Сохранить файл", command=save_file)
 save_button.grid(column=1, row=1)
 
