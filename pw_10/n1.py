@@ -8,7 +8,7 @@ file = open("БДР_УБ-42_vivod.txt", "w")
 file.write("Результат задания №1:\n")
 file.write("Наименьшие элементы каждой четной строки:")
 
-for i in range(1, columns + 1, 2):
+for i in range(1, rows + 1, 2):
     file.write(" ")
     try:
         file.write(min(matrix[i]))
